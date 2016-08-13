@@ -1,24 +1,27 @@
 $(function(){
 //functions
 function handleMousedown(ev){
-  var docPageX=ev.pageX;
-  var docPageY=ev.pageY;
-  var elePageX=$('.drag').offset().left;
-  var elePageY=$('.drag').offset().top;
+  var $this=$(this);
 
-  var ev2eleX=Math.abs(docPageX-elePageX);
-  var ev2eleY=Math.abs(docPageY-elePageY);
+  var evClientX=ev.clientX;
+  var evClientY=ev.clientY;
+  var eleClientX=$this.get(0).offsetLeft;
+  var eleClientY=$this.get(0).offsetTop;
+
+  var ev2eleX=evClientX-eleClientX;
+  var ev2eleY=evClientY-eleClientY;
 
   $(document).on('mousemove',function(ev){
-    var movePageX=ev.pageX;
-    var movePageY=ev.pageY;
-    $('.drag').css({top:(movePageY-ev2eleY),left:(movePageX-ev2eleX)});
+    var moveClientX=ev.clientX;
+    var moveClientY=ev.clientY;
+
+    $this.css({top:(moveClientY-ev2eleY),left:(moveClientX-ev2eleX)});
   });
 
   $(document).on('mouseup',function(ev){
-    $(document).off();
-    // $(document).off('mousemove');
-    // $(document).off('mouseup');
+    // $(document).off();
+    $(document).off('mousemove');
+    $(document).off('mouseup');
   });
 }
 // =====================================================================

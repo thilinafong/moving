@@ -4,11 +4,21 @@
 #container{
   height: 2000px;
 }
+
+.mask_layer{
+  width: 50%;
+  height: 80%;
+  background: blue;
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0.8;
+}
 .drag{
   background: red;
   width: 120px;
   height: 120px;
   position: absolute;
   left:30px;
-  top:1130px;
+  top:30px;
 }
