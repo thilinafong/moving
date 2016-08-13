@@ -39,7 +39,32 @@
 <body>
 <div id="container">
   <div id="test1">
-    <div id="test2"></div>
+    <div id="test2">
+      <code>
+        window.onload=function(){
+          var eleDrag=document.getElementById('div1');
+
+          eleDrag.onmousedown=function(ev){
+            // console.log(ev);
+            var ele2evX=ev.clientX-eleDrag.offsetLeft;
+            var ele2evY=ev.clientY-eleDrag.offsetTop;
+
+            document.onmousemove=function(ev){
+              var l=ev.clientX-ele2evX;
+              var t=ev.clientY-ele2evY;
+
+              eleDrag.style.left=l+'px';
+              eleDrag.style.top=t+'px';
+            };
+            document.onmouseup=function(){
+              document.onmousemove=null;
+              document.onmouseup=null;
+            };
+            // return false;
+          };
+        };
+      </code>
+    </div>
   </div>
 </div>
 <script>

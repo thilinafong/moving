@@ -23,6 +23,7 @@ function handleMousedown(ev){
     $(document).off('mousemove');
     $(document).off('mouseup');
   });
+  return false;
 }
 // =====================================================================
   $('.drag').on('mousedown',handleMousedown);
