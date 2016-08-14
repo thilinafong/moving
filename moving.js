@@ -9,6 +9,9 @@ $(function(){
   var limitMaxX=limitWidth-eleWidth;
   var limitMaxY=limitHeight-eleHeight;
   //functions
+  function drawDot(moveClientX,moveClientY){
+    $('.mask_layer').append('<div class="dot" style="left:'+moveClientX+'px;top:'+moveClientY+'px;"></div>');
+  }
   function handleMousedown(ev){
     var $this=$(this);
 
@@ -41,6 +44,8 @@ $(function(){
         numSetTop=limitMaxY
       }
 
+      drawDot(moveClientX,moveClientY);
+// $('.mask_layer').append('<div class="dot" style="left:'+moveClientX+'px;top:'+moveClientY+'px;"></div>');
       $this.css({left:numSetLeft,top:numSetTop});
     });
 

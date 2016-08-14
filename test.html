@@ -32,12 +32,32 @@
   height: 100px;
   background: blue;
 }
+#selection{
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  width: 200px;
+  height: 80px;
+  background: red;
+  -webkit-user-select:none;
+  cursor:move;
+}
+#selection p{
+  background: green;
+  padding: 10px;
+}
+#selection p::selection{
+  color:blue;
+}
 </style>
 <script src="http://localhost/cdn/modernizr.js"></script>
 <script src="http://localhost/cdn/jquery-3.0.0.min.js"></script>
 </head>
 <body>
 <div id="container">
+  <div id="selection">
+    <p>rtxiiii pp</p>
+  </div>
   <div id="test1">
     <div id="test2">
       <code style="display:none;">
@@ -73,8 +93,10 @@ $(function(){
     console.log(ev.offsetX);
   });
 
-  var eleTest=document.getElementById('test2');
-  console.log(eleTest.offsetTop);
+  var eleTest2=document.getElementById('test2');
+
+  console.log(eleTest2.offsetTop);
+  console.log($('#test2').position().top);
 });
 </script>
 </body>
