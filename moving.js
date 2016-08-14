@@ -14,8 +14,10 @@ $(function(){
 
     var evClientX=ev.clientX;
     var evClientY=ev.clientY;
-    var eleClientX=$this.get(0).offsetLeft;
-    var eleClientY=$this.get(0).offsetTop;
+    // var eleClientX=$this.get(0).offsetLeft;
+    // var eleClientY=$this.get(0).offsetTop;
+    var eleClientX=$this.position().left;
+    var eleClientY=$this.position().top;
 
     var ev2eleX=evClientX-eleClientX;
     var ev2eleY=evClientY-eleClientY;
@@ -46,6 +48,9 @@ $(function(){
       // $(document).off();
       $(document).off('mousemove');
       $(document).off('mouseup');
+
+      //松开鼠标做點什么
+      // $this.animate({top:limitMaxY});
     });
     return false;
   }

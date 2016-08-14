@@ -40,7 +40,7 @@
 <div id="container">
   <div id="test1">
     <div id="test2">
-      <code>
+      <code style="display:none;">
         window.onload=function(){
           var eleDrag=document.getElementById('div1');
 
@@ -72,6 +72,9 @@ $(function(){
   $('#test1').on('click',function(ev){
     console.log(ev.offsetX);
   });
+
+  var eleTest=document.getElementById('test2');
+  console.log(eleTest.offsetTop);
 });
 </script>
 </body>
